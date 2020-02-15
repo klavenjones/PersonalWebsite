@@ -1,0 +1,180 @@
+@import "helper/variables.scss";
+@import "helper/mixins.scss";
+
+*{
+    box-sizing: border-box;
+}
+
+
+html{
+    cursor:url(https://image.ibb.co/gFef0w/arrowwhite.png), auto;
+    
+    body{
+        padding: 1rem;    
+        font-size: 20px;
+        overflow-x: hidden;
+        height: 100%;
+        
+        // cursor:url(https://image.ibb.co/gFef0w/arrowwhite.png), auto;
+        
+        
+        .greeting{
+            
+            position: absolute;
+            z-index: 1001;
+            font-size: 28px;
+            top: 375px;
+            right: 0;
+            left: 0;
+            text-align: center;
+            @extend .font-intro;
+            color: whitesmoke;
+            opacity: 0;
+            @include transition(opacity 1.5s, transform 1s);
+            @include transform(translateX(-15rem));
+            
+           
+        }
+        .container{
+            position: relative;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 100%;
+            
+        
+            @include transition(all .3s);
+            @include respond-to(medium-screens){
+               width: 75%;
+               margin: 0 0 0 50px;
+            }
+            @include respond-to(wide-screens){
+                width: 70%;
+            }
+          
+            section{
+                width: 100%;
+                .large{
+                    @extend .font-intro;
+                    @include transition(all .3s);
+                    #name, #skill{
+                        color: $color;
+                    }
+                    #name{
+                        display: inline-block;
+                        &:hover{
+                            text-decoration: underline;
+                            @include transition(all .3s);
+                        }
+                    }
+                }
+                ul{
+                list-style-type: none;
+                margin-left: -60px;
+                    li{
+                        display: inline-block;
+                        margin: 0 20px;
+                        .contact{
+                            
+                            text-decoration: none;
+                            &:hover{
+                                color: $color;
+                                @include transition(all .3s);
+                            }
+                          
+                        }
+                    }
+                }
+            }
+        
+        }
+        .img-section{
+            position: absolute;
+            z-index: 1000;
+            top: 50px;
+            right: 0;
+            left: 0;
+            width: 350px;
+            height: 100px;
+            padding-top: 100px;
+            margin: auto;
+            opacity: 0;
+        
+            @include transition(opacity 1s, transform 1s);
+            @include transform(translateX(15rem));
+        
+           
+            img{
+                width: 100%;
+                border-radius: 100%;
+                box-shadow: 1px 5px 15px #888888;
+            }
+            
+        
+        }
+        .animated {
+            animation-duration: .8s;
+            animation-fill-mode: both;
+          }
+        .hide{
+            display: none;
+        }
+        
+        .is-active{
+        
+            @include transform(translateX(0));
+            
+            opacity: 1;
+           
+        }
+        
+        .custom-rollover{
+            cursor: url(https://image.ibb.co/jmoZSb/arrowrollover.png), auto;
+        }
+        
+        
+        @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translate3d(0, 10%, 0);
+            }
+          
+            to {
+              opacity: 1;
+              transform: none;
+            }
+          }
+          
+          @keyframes slideOutRight {
+            from {
+              transform: translate3d(0, 0, 0);
+            }
+          
+            to {
+              visibility: hidden;
+              transform: translate3d(250%, 0, 0);
+            }
+          }
+          
+          .slideOutRight {
+            animation-name: slideOutRight;
+          }
+         
+          @keyframes slideInRight {
+            from {
+              transform: translate3d(200%, 0, 0);
+              visibility: visible;
+            }
+          
+            to {
+              transform: translate3d(0, 0, 0);
+            }
+          }
+          .slideInRight {
+            animation-name: slideInRight;
+          }
+        
+        }
+        
+        
+
+}
